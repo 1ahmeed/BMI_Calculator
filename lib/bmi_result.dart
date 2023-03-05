@@ -5,9 +5,10 @@ class BmiResult extends StatelessWidget {
  final int result;
 final bool isMail;
 final int age;
+final String state;
 
  const BmiResult({super.key,
-  required this.result, required this.isMail, required this.age,
+  required this.result, required this.isMail, required this.age,required this.state
 });
   @override
   Widget build(BuildContext context) {
@@ -17,9 +18,7 @@ final int age;
           icon:const Icon(Icons.arrow_back),
           onPressed: (){
             Navigator.pop(context);
-
           },
-
         ),
         backgroundColor: Colors.deepPurple,
         title: const Text("BMI Result",
@@ -33,103 +32,76 @@ final int age;
         color: Colors.black87,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisSize: MainAxisSize.max,
           children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Container(
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(15),
-                    color: Colors.deepPurple,
-                  ),
-                  height: 50,
-                  width: 300,
-                  child: Text("gender: ${isMail? 'male':'female'}",
-                    style: const TextStyle(
-                      color: Colors.white,
-                      fontSize: 40,
-                    ),
-                    textAlign: TextAlign.center,
-                  ),
-
-
-
+            SizedBox(width: double.infinity,),
+            Container(
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(15),
+                color: Colors.deepPurple,
+              ),
+              height: 50,
+              width: 300,
+              child: Text("gender: ${isMail? 'male':'female'}",
+                style: const TextStyle(
+                  color: Colors.white,
+                  fontSize: 40,
                 ),
-              ],
-            ),
-            const SizedBox(height: 20,),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 20.0),
-              child: Row(
-                children: [
-                  Expanded(
-                    child: Container(
-                      decoration: BoxDecoration(
-                        color: Colors.deepPurple,
-                        borderRadius: BorderRadius.circular(15),
-                      ),
-                    width: 200,
-                    height: 50,
-
-                    child: Text("result:$result", style:
-                    const TextStyle(
-                              fontSize: 40,
-                            color: Colors.white,
-                          ),
-                    textAlign: TextAlign.center,),
-
-                    ),
-                  ),
-                  const SizedBox(width: 20,),
-                  Expanded(
-                    child: Container(
-                      decoration: BoxDecoration(
-                        color: Colors.deepPurple,
-                        borderRadius: BorderRadius.circular(15),
-                      ),
-                      width: 200,
-                      height: 50,
-
-                      child: Text("age:$age", style: const TextStyle(
-                              fontSize: 40,
-                            color: Colors.white,
-                          ),
-                        textAlign: TextAlign.center,),
-                      ),
-                  ),
-
-
-
-
-                ],
-
+                textAlign: TextAlign.center,
               ),
             ),
+            const SizedBox(height: 20,),
+            Container(
+              decoration: BoxDecoration(
+                color: Colors.deepPurple,
+                borderRadius: BorderRadius.circular(15),
+              ),
+              width: 300,
+              height: 50,
+
+              child: Text("result:$result", style:
+              const TextStyle(
+                fontSize: 40,
+                color: Colors.white,
+              ),
+                textAlign: TextAlign.center,),
+
+            ),
+            const SizedBox(height: 20,),
+            Container(
+              decoration: BoxDecoration(
+                color: Colors.deepPurple,
+                borderRadius: BorderRadius.circular(15),
+              ),
+              width: 300,
+              height: 50,
+
+              child: Text("age:$age", style: const TextStyle(
+                fontSize: 40,
+                color: Colors.white,
+              ),
+                textAlign: TextAlign.center,),
+            ),
+            const SizedBox(height: 20,),
+            Container(
+              decoration: BoxDecoration(
+                color: Colors.deepPurple,
+                borderRadius: BorderRadius.circular(15),
+              ),
+              width: 300,
+              height: 50,
+
+              child: Text("State:$state", style: const TextStyle(
+                fontSize: 40,
+                color: Colors.white,
+              ),
+                textAlign: TextAlign.center,),
+            ),
 
 
 
-//Column(
-//                     mainAxisAlignment: MainAxisAlignment.center,
-//                     children: [
-//                       Text("gender:${isMail? 'male':'female'}",
-//                       style: TextStyle(
-//                         color: Colors.white,
-//                         fontSize: 40,
-//                         fontWeight: FontWeight.bold,
-//                       ),),
-//                       Text("result:$result", style: TextStyle(
-//                           fontSize: 40,
-//                         fontWeight: FontWeight.bold,
-//                         color: Colors.white,
-//                       ),),
-//                       Text("age:$age", style: TextStyle(
-//                           fontSize: 40,
-//                         fontWeight: FontWeight.bold,
-//                         color: Colors.white,
-//                       ),),
-//
-//                     ],
-//                   ),
+
+
           ],
         ),
       ),

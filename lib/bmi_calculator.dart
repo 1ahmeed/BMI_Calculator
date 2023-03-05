@@ -13,9 +13,9 @@ class BmiCalculator extends StatefulWidget {
 
 class _BmiCalculatorState extends State<BmiCalculator> {
   bool  isMale=true;
-  double height=120;
-  int age=50;
-  double weight=100;
+  double height=160;
+  int age=25;
+  double weight=80;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -44,7 +44,6 @@ class _BmiCalculatorState extends State<BmiCalculator> {
                           setState(() {
                             isMale=true;
                           });
-
                         },
                         child: Container(
                           decoration: BoxDecoration(
@@ -290,6 +289,16 @@ class _BmiCalculatorState extends State<BmiCalculator> {
                child: MaterialButton(
                  onPressed: (){
                    double result=weight/pow(height/100, 2);
+                   String? state;
+                   if(result < 18.5){
+                     state='under weight';
+                   }else if(18.5< result && result < 24.9 ){
+                     state='normal';
+                   }else if(25< result && result < 29.9){
+                     state='Overweight';
+                   }else if(result >30 ){
+                     state='Obese';
+                   }
                    if (kDebugMode) {
                      print(result.round());
                    }
@@ -299,6 +308,7 @@ class _BmiCalculatorState extends State<BmiCalculator> {
                             age: age,
                             isMail:isMale ,
                             result: result.round(),
+                            state: state!,
                           )),
                   );
                  },
